@@ -22,8 +22,8 @@ def divisible_by_3_and_4(n):
     for i in range(n + 1):
         if i % 3 == 0 and i % 4 == 0:
             yield i
-
-for num in divisible_by_3_and_4(50):
+n = int(input())
+for num in divisible_by_3_and_4(n):
     print(num)
 
 
@@ -32,7 +32,8 @@ def squares(a, b):
     for i in range(a, b + 1):
         yield i * i
 
-for value in squares(3, 7):
+a, b = map(int, input().split())
+for value in squares(a, b):
     print(value)
     
 
@@ -41,7 +42,7 @@ def countdown(n):
     while n >= 0:
         yield n
         n -= 1
-
-for number in countdown(5):
+n = int(input())
+for number in countdown(n):
     print(number)
 
