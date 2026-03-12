@@ -1,21 +1,12 @@
-#!/usr/bin/env python3
-"""
-map_filter_reduce.py
-
-Examples and explanations for Python's map(), filter(), and reduce() functions.
-These functions are pillars of functional programming in Python.
-"""
-
 from functools import reduce  # reduce is in the functools module
 
-# ==============================
 # map() - Apply a function to every item in an iterable
-# ==============================
+
 print("=" * 50)
 print("map()")
 print("=" * 50)
 
-# map(function, iterable, ...) returns an iterator that applies function to every item.
+
 
 # Example 1: Square each number in a list
 numbers = [1, 2, 3, 4, 5]
@@ -36,17 +27,13 @@ nums2 = [4, 5, 6]
 summed = list(map(lambda x, y: x + y, nums1, nums2))
 print("Sum of pairs:", summed)  # [5, 7, 9]
 
-# Note: map stops at the shortest iterable if lengths differ.
 
-# ==============================
 # filter() - Keep items that satisfy a condition
-# ==============================
+
 print("\n" + "=" * 50)
 print("filter()")
 print("=" * 50)
 
-# filter(function, iterable) returns an iterator with items for which function returns True.
-# The function should return a boolean.
 
 # Example 1: Keep only even numbers
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -62,15 +49,13 @@ print("Without None:", non_none)  # [1, 2, 3, 0, 4]
 truthy_items = list(filter(None, items))  # None, 0 are falsey
 print("Truthy items (None as function):", truthy_items)  # [1, 2, 3, 4]
 
-# ==============================
+
 # reduce() - Cumulative reduction of items to a single value
-# ==============================
+
 print("\n" + "=" * 50)
 print("reduce()")
 print("=" * 50)
 
-# reduce(function, iterable[, initializer]) applies function cumulatively to items,
-# reducing the sequence to a single value. The function must take two arguments.
 
 # Example 1: Sum of all numbers
 numbers = [1, 2, 3, 4, 5]
@@ -90,9 +75,9 @@ pairs = [("a", 1), ("b", 2), ("c", 3)]
 dict_from_pairs = reduce(lambda d, kv: {**d, kv[0]: kv[1]}, pairs, {})
 print("Dictionary from pairs:", dict_from_pairs)  # {'a': 1, 'b': 2, 'c': 3}
 
-# ==============================
+
 # Combining map, filter, reduce
-# ==============================
+
 print("\n" + "=" * 50)
 print("Combining map, filter, reduce")
 print("=" * 50)
@@ -114,15 +99,14 @@ result = reduce(lambda acc, x: acc + x,
                 0)
 print("Chained result:", result)                        # 220
 
-# ==============================
+
 # Alternative: List comprehensions
-# ==============================
+
 print("\n" + "=" * 50)
 print("List comprehensions (often more Pythonic)")
 print("=" * 50)
 
-# Many uses of map/filter can be replaced with comprehensions.
-# The combined example above could be written as:
+
 comprehension_result = sum(x**2 for x in numbers if x % 2 == 0)
 print("Using comprehension + sum:", comprehension_result)  # 220
 
@@ -134,4 +118,3 @@ print("Squared via comprehension:", squared_comp)
 evens_comp = [x for x in numbers if x % 2 == 0]
 print("Evens via comprehension:", evens_comp)
 
-# Note: reduce has no direct comprehension equivalent (but many cases can use sum(), max(), etc.)

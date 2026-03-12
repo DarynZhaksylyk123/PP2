@@ -1,8 +1,4 @@
-"""
-enumerate_zip_examples.py - concise examples of enumerate() and zip().
-"""
-
-# ===== enumerate() =====
+# enumerate()
 print("enumerate():")
 fruits = ['apple', 'banana', 'cherry']
 for i, fruit in enumerate(fruits):
@@ -15,26 +11,29 @@ nums = [10, 20, 30, 20]
 indices = [i for i, v in enumerate(nums) if v == 20]
 print("Indices of 20:", indices)
 
-# ===== zip() =====
+# zip() 
 print("\nzip():")
 names = ['Alice', 'Bob', 'Charlie']
 scores = [85, 92, 78]
 for name, score in zip(names, scores):
     print(f"{name}: {score}")
+    
 # zipped list
 pairs = list(zip(names, scores))
 print(pairs)
+
 # unequal lengths - truncation
 short = [1, 2]
 long = ['a', 'b', 'c']
 print("zip truncates:", list(zip(short, long)))
+
 # build dict
 keys = ['name', 'age']
 vals = ['Alice', 30]
 d = dict(zip(keys, vals))
 print("dict from zip:", d)
 
-# ===== combine enumerate and zip =====
+# combine enumerate and zip
 print("\ncombined:")
 items = ['pen', 'pencil']
 prices = [1.5, 0.8]
