@@ -37,7 +37,7 @@ print(re.findall(pattern4, text4))  # ['Hello', 'World', 'Python', 'Reg']
 print("\n5. 'a' followed by anything ending with 'b'")
 text5 = "ab acb aXYZb a123b a_b"
 pattern5 = r"a.*b"
-print(re.findall(pattern5, text5))  # ['ab', 'acb', 'aXYZb', 'a123b', 'a_b']
+print(re.findall(pattern5, text5))  # ['ab acb aXYZb a123b a_b']
 
 
 # 6. Replace space, comma, or dot with colon
@@ -45,7 +45,7 @@ print(re.findall(pattern5, text5))  # ['ab', 'acb', 'aXYZb', 'a123b', 'a_b']
 print("\n6. Replace space, comma, or dot with colon")
 text6 = "Hello, world. This is Python"
 pattern6 = r"[ ,.]"
-print(re.sub(pattern6, ":", text6))  # "Hello:world:This:is:Python"
+print(re.sub(pattern6, ":", text6))  # "Hello::world:This:is:Python"
 
 
 # 7. Convert snake_case to camelCase
