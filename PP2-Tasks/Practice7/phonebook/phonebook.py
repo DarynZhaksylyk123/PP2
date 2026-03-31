@@ -1,19 +1,10 @@
-import psycopg2
 import csv
-from config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
-
-# ----Connection----
-
-conn = psycopg2.connect(
-    host=DB_HOST,
-    database=DB_NAME,
-    user=DB_USER,
-    password=DB_PASSWORD
-)
+from connect import connect
 
 # ----Create Table----
 
 def table():
+    conn = connect()
     sql = """CREATE TABLE IF NOT EXISTS contacts(
         id SERIAL PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
@@ -26,6 +17,7 @@ def table():
 # ----INSERT----
 
 def insert(name, phone):
+    conn = connect()
     sql = "INSERT INTO contacts(name, phone) VALUES(%s, %s)"
     with conn.cursor() as cur:
         cur.execute(sql, (name, phone))
@@ -38,6 +30,7 @@ def insert_console():
     print(f"Added: {name} - {phone}")
     
 def insert_csv(csv_file):
+    conn = connect()
     sql = "INSERT INTO contacts(name, phone) VALUES(%s, %s)"
     with conn.cursor() as cur:
         with open(csv_file, "r") as f:
@@ -52,12 +45,14 @@ def insert_csv(csv_file):
 # ----SELECT----
 
 def select_all():
+    conn = connect()
     sql = "SELECT * FROM contacts"
     with conn.cursor() as cur:
         cur.execute(sql)
         return cur.fetchall()   
 
 def search(pattern):
+    conn = connect()
     sql = "SELECT * FROM contacts WHERE name ILIKE %s or phone ILIKE %s"
     like_p = f"%{pattern}%"
     with conn.cursor() as cur:
@@ -67,6 +62,7 @@ def search(pattern):
 # ----UPDATE----
 
 def upd_phone(name, nw_phone):
+    conn = connect()
     sql = "UPDATE contacts SET phone = %s WHERE name = %s"
     with conn.cursor() as cur:
         cur.execute(sql, (nw_phone, name)) 
@@ -74,6 +70,7 @@ def upd_phone(name, nw_phone):
         print(f"Updated {cur.rowcount} row(s)")
 
 def upd_name(phone, nw_name):
+    conn = connect()
     sql = "UPDATE contacts SET name = %s WHERE phone = %s"
     with conn.cursor() as cur:
         cur.execute(sql, (nw_name, phone))
@@ -83,6 +80,7 @@ def upd_name(phone, nw_name):
 # ----DELETE----
 
 def d_name(name):
+    conn = connect()
     sql = "DELETE FROM contacts WHERE name = %s"
     with conn.cursor() as cur:
         cur.execute(sql, (name,))
@@ -90,6 +88,7 @@ def d_name(name):
         print(f"Deleted {cur.rowcount} row(s)")
 
 def d_phone(phone):
+    conn = connect()
     sql = "DELETE FROM contacts WHERE phone = %s"
     with conn.cursor() as cur:
         cur.execute(sql, (phone,))
