@@ -108,6 +108,7 @@ def main():
     table()
     
     while True:
+        conn = connect()
         print("\n---- Phonebook ----")
         print("1. Show all contacts") 
         print("2. Add contacts from console") 
