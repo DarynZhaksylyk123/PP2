@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION s_contatcs(p TEXT)
+CREATE OR REPLACE FUNCTION s_contacts(p TEXT)
 RETURNS TABLE(name VARCHAR, phone VARCHAR) as $$
 BEGIN
     RETURN QUERY SELECT c.name, c.phone FROM contacts c
