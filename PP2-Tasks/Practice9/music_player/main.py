@@ -13,6 +13,12 @@ pygame.display.set_caption('Music Player')
 clock = pygame.time.Clock()
 font = pygame.font.Font("C:/Negr/VsCode/Python/game/fonts/MinecraftItalic-R8Mo.otf", 30)
 
+play = font.render("P-play", False, 'White')
+next = font.render("N-next", False, 'White')
+stop = font.render("S-stop", False, 'White')
+pre = font.render("P-previous", False, 'White')
+quit = font.render("Q-quit", False, 'White')
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -29,10 +35,17 @@ while running:
                 player.stop()
             if event.key == pygame.K_q:
                 running = False    
+    
+    
             
     
     
     screen.fill((30, 30, 30))
+    screen.blit(play, (30,170))
+    screen.blit(stop, (30,200))
+    screen.blit(next, (30,230))
+    screen.blit(pre, (30,260))
+    screen.blit(quit, (30, 290))
     track_name = os.path.basename(player.tracks[player.cur])
     text = font.render(track_name, False, (255,255,255))
     screen.blit(text, (50, 50))
