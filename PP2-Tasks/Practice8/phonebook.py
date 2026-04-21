@@ -23,8 +23,8 @@ def insert(name, phone):
         conn.commit()
 
 def insert_console():
-    name = input("Enter name: ")
-    phone = input("Enter phone: ")
+    name = input("Enter phone: ")
+    phone = input("Enter name: ")
     insert(name, phone)
     print(f"Added: {name} - {phone}")
     
