@@ -16,7 +16,7 @@ cell = 30
 def grid():
     for i in range (height // cell):
         for j in range (width // cell):
-            pygame.draw.rect(screen, colorGRAY, (i * cell, j * cell, cell,cell), 1)
+            pygame.draw.rect(screen, colorWHITE, (i * cell, j * cell, cell,cell), 1)
     
 class Point:
     def __init__(self, x, y):
@@ -52,9 +52,9 @@ class Snake:
                 
     def draw(self):
         head = self.body[0]
-        pygame.draw.rect(screen, colorRED, (head.x * cell, head.y * cell, cell, cell))
+        pygame.draw.rect(screen, colorBLUE, (head.x * cell, head.y * cell, cell, cell))
         for segment in self.body[1:]:
-            pygame.draw.rect(screen, colorYELLOW, (segment.x * cell, segment.y * cell, cell, cell))
+            pygame.draw.rect(screen, colorGREEN, (segment.x * cell, segment.y * cell, cell, cell))
 
     def check_collision(self, food):
         head = self.body[0]
@@ -68,7 +68,7 @@ class Food:
         self.pos = Point(9, 9)
 
     def draw(self):
-        pygame.draw.rect(screen, colorGREEN, (self.pos.x * cell, self.pos.y * cell, cell, cell))
+        pygame.draw.rect(screen, colorYELLOW, (self.pos.x * cell, self.pos.y * cell, cell, cell))
 
     def generate_random_pos(self):
         self.pos.x = random.randint(0, width // cell - 1)
@@ -114,4 +114,3 @@ while running:
     clock.tick(FPS)
 
 pygame.quit()
-
