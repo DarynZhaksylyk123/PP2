@@ -101,6 +101,11 @@ speed = 2
 score = 0
 coins_collected = 0  
 
+bg = pygame.mixer.Sound('PP2-Tasks/Practice10/Racer/UNIK - Гонк-Конг.mp3')
+bg.play()
+
+haha = pygame.mixer.Sound('PP2-Tasks/Practice10/Racer/mangaletp-funny-laughing-406018.mp3')
+
 
 running = True
 while running:
@@ -210,6 +215,8 @@ while running:
     if gameover:
         screen.blit(crash, crash_rect)
         pygame.draw.rect(screen, red, (0, 100, width, 200))
+        bg.stop()
+        haha.play()
 
         text = font.render("Game Over. Play again? (Enter Y or N)", True, white)
         text_rect = text.get_rect()
@@ -237,8 +244,11 @@ while running:
                     vehicle_group.empty()
                     coin_group.empty()           
                     player.rect.center = [player_x, player_y]
+                    bg.play()
+                    haha.stop()
 
                 elif event.key == K_n:
+                    
                     running  = False
                     gameover = False
 
