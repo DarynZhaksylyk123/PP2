@@ -1,0 +1,8 @@
+colorBLACK  = (0,   0,   0)
+colorWHITE  = (255, 255, 255)
+colorRED    = (255, 0,   0)
+colorGREEN  = (0,   200, 0)
+colorYELLOW = (255, 220, 0)
+colorGRAY   = (40,  40,  40)
+colorORANGE = (255, 140, 0)
+colorPURPLE = (180, 0,   220)

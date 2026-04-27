@@ -1,0 +1,7 @@
+name,phone,type,email,birthday,group
+Alice Johnson,+77011234567,mobile,alice@gmail.com,1990-05-14,Friend
+Bob Smith,+77029876543,work,bob.smith@work.com,1985-11-02,Work
+Charlie Brown,+77013334455,home,charlie@mail.ru,1993-07-30,Family
+Diana Prince,+77015556677,mobile,diana@gmail.com,,Friend
+Eve Adams,+77017778899,work,eve@company.com,1988-03-21,Work
+Frank Castle,+77019990011,mobile,,1975-12-01,Other
